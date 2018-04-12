@@ -1,2 +1,47 @@
-body {
+@font-face {
+    font-family: Mister-Froggie-Regular;
+    src: url('../fonts/mister-froggie-regular.otf');
 }
+
+body {
+    color: #202020;
+    font-size: 16px;
+}
+h1 {
+    font-family: 'Mister-Froggie-Regular', Arial, Helvetica, sans-serif;
+    font-size: 120px;
+}
+
+/* colors */
+.bg1 {
+    background-color: #cc0000;
+}
+.bg2 {
+    background-color: #007a7a;
+}
+.bg3 {
+    background-color: #7fbe00;
+}
+.color1 {
+    color: #cc0000;
+}
+.color2 {
+    color: #007a7a;
+}
+.color3 {
+    color: #7fbe00;
+}
+/* end colors */
+
+
+/* footer */
+#fixed-footer {
+    background-color: #202020;
+    color: #808080;
+    left: 0px;
+    bottom: 0px;
+    padding: 24px 0;
+    position: fixed;
+    width: 100%;
+}
+/* end footer */
