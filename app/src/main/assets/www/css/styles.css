@@ -9,7 +9,7 @@ body {
 }
 h1 {
     font-family: 'Mister-Froggie-Regular', Arial, Helvetica, sans-serif;
-    font-size: 120px;
+    font-size: 80px;
 }
 
 /* colors */
@@ -33,11 +33,20 @@ h1 {
 }
 /* end colors */
 
+/* title */
+#app-title {
+    position: fixed;
+    top: -130px;
+    width: 100%;
+}
+/* end title */
+
 
 /* footer */
 #fixed-footer {
     background-color: #202020;
     color: #808080;
+    font-size: 14px;
     left: 0px;
     bottom: 0px;
     padding: 24px 0;
