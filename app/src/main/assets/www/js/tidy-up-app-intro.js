@@ -4,6 +4,13 @@ function TidyUpAppIntro()
     this.MAX_TOY_DELAY_MILLISECONDS = 400;
     this.MIN_TOY_DELAY_MILLISECONDS = 50;
     this.NUM_TOYS = 20;
+    this.TOY_IMAGES = [
+        'images/android-bot.png',
+        'images/ballet-shoes.png',
+        'images/banana-peel.png',
+        'images/rubber-duck.png',
+        'images/socks.png'
+    ];
     // end constants
 
     // properties
@@ -96,9 +103,10 @@ TidyUpAppIntro.prototype.populate_toys = function(){
 TidyUpAppIntro.prototype.random_toy_el = function(i){
 
     //TODO: make this actually randomize the toys
-    return $('<div/>', {
+    return $('<img/>', {
+        alt: 'toy element',
         class: 'falling-toy',
-        text: 'toy element'
+        src: this.TOY_IMAGES[i % this.TOY_IMAGES.length]
     });
 };
 
