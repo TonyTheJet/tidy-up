@@ -54,3 +54,11 @@ h1 {
     width: 100%;
 }
 /* end footer */
+
+/* falling toys */
+.falling-toy {
+    display: block;
+    position: fixed;
+    top: -100px;
+}
+/* end falling toys */
