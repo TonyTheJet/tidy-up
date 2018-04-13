@@ -8,6 +8,7 @@ function TidyUpAppIntro()
 
     // properties
     this.body_el = $('body');
+    this.done = false;
     this.previous_toy_delay = 1000;
     this.toys = [];
     this.title_el = $('#app-title');
@@ -87,12 +88,12 @@ TidyUpAppIntro.prototype.hide_intro_elements = function(){
 
 TidyUpAppIntro.prototype.populate_toys = function(){
     for (var i = 0; i < this.NUM_TOYS; i++){
-        var toy = this.random_toy_el();
+        var toy = this.random_toy_el(i);
         this.toys.push(toy);
     }
 };
 
-TidyUpAppIntro.prototype.random_toy_el = function(){
+TidyUpAppIntro.prototype.random_toy_el = function(i){
 
     //TODO: make this actually randomize the toys
     return $('<div/>', {
@@ -116,6 +117,8 @@ TidyUpAppIntro.prototype.start = function(){
     var this_ref = this;
     setTimeout(function(){
         this_ref.hide_intro_elements();
+        this_ref.done = true;
+        console.log(this_ref);
     }, 8000);
 
 };

@@ -41,6 +41,16 @@ h1 {
 }
 /* end title */
 
+/* main */
+#main {
+    padding-top: 16px;
+}
+
+#main #settings-btn {
+    cursor: pointer;
+    font-size: 32px;
+}
+/* end main */
 
 /* footer */
 #fixed-footer {
