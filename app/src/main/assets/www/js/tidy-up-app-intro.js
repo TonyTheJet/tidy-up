@@ -52,7 +52,7 @@ TidyUpAppIntro.prototype.drop_toy = function(toy){
     });
     toy.animate(
         {
-            top: this.window_height - toy.height() - 67
+            top: this.window_height - toy.height() - (Math.floor(Math.random() * (105 - 67)) + 67)
         },
         1000,
         function(){
