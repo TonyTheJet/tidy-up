@@ -52,6 +52,51 @@ h1 {
 }
 /* end main */
 
+/* main menu */
+#main-menu {
+    background-color: #cc0000;
+    display: block;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    z-index: 100;
+}
+
+#main-menu li {
+    border-bottom: 2px solid #fff;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#main-menu li:last-child {
+    background: #202020;
+    border-bottom: none;
+}
+
+#main-menu button.btn-link {
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 24px;
+    padding: 8px;
+    text-decoration: none;
+    width: 100%;
+}
+
+#main-menu button.btn-link:active, #main-menu button.btn-link:hover {
+    background-color: #a70000;
+}
+
+#main-menu li:last-child button.btn-link:active, #main-menu li:last-child button.btn-link:hover {
+    background-color: #101010;
+}
+/* end main menu */
+
 /* footer */
 #fixed-footer {
     background-color: #202020;

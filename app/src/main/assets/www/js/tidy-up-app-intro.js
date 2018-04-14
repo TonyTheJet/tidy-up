@@ -8,8 +8,15 @@ function TidyUpAppIntro()
         'images/android-bot.png',
         'images/ballet-shoes.png',
         'images/banana-peel.png',
+        'images/barbie.png',
+        'images/book.png',
+        'images/bouncy-ball.png',
+        'images/crumpled-paper.png',
+        'images/horse.png',
         'images/rubber-duck.png',
-        'images/socks.png'
+        'images/socks.png',
+        'images/teddy-bear.png',
+        'images/toy-car.png'
     ];
     // end constants
 
