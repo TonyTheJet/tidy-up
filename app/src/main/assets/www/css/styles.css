@@ -3,8 +3,14 @@
     src: url('../fonts/mister-froggie-regular.otf');
 }
 
+@font-face {
+    font-family: SmartKid;
+    src: url('../fonts/smart-kid.otf');
+}
+
 body {
     color: #202020;
+    font-family: 'SmartKid', Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
 h1 {
@@ -95,12 +101,25 @@ h1 {
 #main-menu li:last-child button.btn-link:active, #main-menu li:last-child button.btn-link:hover {
     background-color: #101010;
 }
+
+#background-overlay {
+    background: #202020;
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+}
 /* end main menu */
 
 /* footer */
 #fixed-footer {
     background-color: #202020;
     color: #808080;
+    font-family: Arial Helvetica, sans-serif;
     font-size: 14px;
     left: 0px;
     bottom: 0px;

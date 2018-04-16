@@ -2,6 +2,7 @@ function TidyUpApp()
 {
     this.intro = new TidyUpAppIntro();
     this.main = new TidyUpAppMain();
+    this.menu = new TidyUpAppMenu();
 };
 
 TidyUpApp.prototype.init = function()
