@@ -13,13 +13,33 @@
         <h1 class="text-center color1" id="app-title">Tidy-Up Timer</h1>
         <div id="main" class="row hidden">
             <div class="col-xs-12">
-                <i class="fa fa-bars pull-right" id="settings-btn"></i>
-                <ul class="hidden" id="main-menu">
-                    <li><button class="btn btn-link" id="btn-new-timer">New Timer</button></li>
-                    <li><button class="btn btn-link" id="btn-high-scores">High Scores</button></li>
-                    <li><button class="btn btn-link" id="btn-about">About Tidy-Up Timer</button></li>
-                    <li><button class="btn btn-link" id="btn-close-menu">X Close</button></li>
-                </ul>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <i class="fa fa-bars pull-right" id="settings-btn"></i>
+                        <ul class="hidden" id="main-menu">
+                            <li><button class="btn btn-link" id="btn-new-timer">New Timer</button></li>
+                            <li><button class="btn btn-link" id="btn-high-scores">High Scores</button></li>
+                            <li><button class="btn btn-link" id="btn-about">About Tidy-Up Timer</button></li>
+                            <li><button class="btn btn-link" id="btn-close-menu">X Close</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row" id="timer-selection-wrapper">
+                    <div class="col-xs-4 text-center">
+                        <button class="btn-btn-primary" data-seconds="120"><span class="kid-sans">2</span> mins</button>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <button class="btn btn-default" data-seconds="300"><span class="kid-sans">5</span> mins</button>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <button class="btn btn-danger" data-seconds="600"><span class="kid-sans">10</span> mins</button>
+                    </div>
+                </div>
+                <div class="row" id="timer-wrapper">
+                    <div class="col-xs-12 text-center">
+                        <span id="timer-minutes" class="kid-sans">2</span>:<span id="timer-seconds" class="kid-sans">00</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,4 +1,9 @@
 @font-face {
+    font-family: KidSans;
+    src: url('../fonts/kid-sans.ttf');
+}
+
+@font-face {
     font-family: Mister-Froggie-Regular;
     src: url('../fonts/mister-froggie-regular.otf');
 }
@@ -6,6 +11,15 @@
 @font-face {
     font-family: SmartKid;
     src: url('../fonts/smart-kid.otf');
+}
+.kid-sans {
+    font-family: KidSans, Arial, Helvetica, sans-serif !important;
+}
+.mister-froggie-regular {
+    font-family: Mister-Froggie-Regular, Arial, Helvetica, sans-serif !important;
+}
+.smart-kid {
+    font-family: SmartKid, Arial, Helvetica, sans-serif !important;
 }
 
 body {
@@ -114,6 +128,16 @@ h1 {
     z-index: 99;
 }
 /* end main menu */
+
+/* timer */
+#timer-selection-wrapper {
+    padding-top: 80px;
+}
+
+#timer-wrapper {
+    font-size: 48px;
+}
+/* end timer */
 
 /* footer */
 #fixed-footer {
