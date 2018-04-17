@@ -12,7 +12,7 @@ TidyUpApp.prototype.init = function()
     var this_main = this.main;
     var interval = setInterval(function(){
         if (this_intro.done === true){
-            interval = null;
+            clearInterval(interval);
             this_main.load();
         }
     }, 250);

@@ -133,7 +133,6 @@ TidyUpAppIntro.prototype.start = function(){
     setTimeout(function(){
         this_ref.hide_intro_elements();
         this_ref.done = true;
-        console.log(this_ref);
     }, 8000);
 
 };

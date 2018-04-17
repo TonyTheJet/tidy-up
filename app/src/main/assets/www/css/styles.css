@@ -130,6 +130,13 @@ h1 {
 /* end main menu */
 
 /* timer */
+.timer-btn {
+    cursor: pointer;
+}
+.timer-btn:active, .timer-btn:hover, .timer-btn.disabled {
+    opacity: .7;
+}
+
 #timer-selection-wrapper {
     padding-top: 80px;
 }
