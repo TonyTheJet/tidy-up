@@ -41,14 +41,12 @@ TidyUpAppTimer.prototype.refresh = function(){
 
 TidyUpAppTimer.prototype.register_handlers = function(){
     var this_ref = this;
-    this.timer_pause_button = $('#timer-pause');
-    this.timer_start_button = $('#timer-start');
 
-    this.timer_pause_button.on('click', function(){
+    this.timer_pause_button.off('click').on('click', function(){
         this_ref.pause();
 
     });
-    this.timer_start_button.on('click', function(){
+    this.timer_start_button.off('click').on('click', function(){
         this_ref.start();
     });
 };

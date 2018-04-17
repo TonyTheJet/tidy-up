@@ -13,8 +13,9 @@ TidyUpAppMain.prototype.load = function(){
 TidyUpAppMain.prototype.register_handlers = function(){
     var this_ref = this;
     this.timer_selection_buttons.on('click', function(){
-        if (this_ref.timer && this_ref.timer.interval)
+        if (this_ref.timer && this_ref.timer.interval){
             clearInterval(this_ref.timer.interval);
+        }
         this_ref.timer = new TidyUpAppTimer();
         this_ref.timer.total_seconds = $(this).data('seconds');
         this_ref.timer.refresh();

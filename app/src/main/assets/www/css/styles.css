@@ -167,3 +167,43 @@ h1 {
     top: -100px;
 }
 /* end falling toys */
+
+/* bootstrap overrides */
+.btn-primary {
+    background-color: #007a7a;
+    border-color: #007a7a;
+}
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+    background-color: #006464;
+    border-color: #006464;
+}
+
+.btn-default {
+    background-color: #404040;
+    border-color: #404040;
+    color: #fff;
+}
+.btn-default:hover,
+.btn-default:active,
+.btn-default:visited,
+.btn-default:focus {
+    background-color: #202020;
+    border-color: #202020;
+    color: #fff;
+}
+
+.btn-danger {
+    background-color: #cc0000;
+    border-color: #cc0000;
+}
+.btn-danger:hover,
+.btn-danger:active,
+.btn-danger:visited,
+.btn-danger:focus {
+    background-color: #a70000;
+    border-color: #a70000;
+}
+/* end bootstrap overrides */
