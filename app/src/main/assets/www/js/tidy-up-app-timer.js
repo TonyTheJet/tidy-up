@@ -1,7 +1,10 @@
 function TidyUpAppTimer(){
     this.interval = null;
+    this.items_cleaned = 0;
     this.minutes_el = $('#timer-minutes');
     this.seconds_el = $('#timer-seconds');
+    this.timer_add_item_button = $('#timer-add-item');
+    this.timer_items_added_el = $('#timer-items-added');
     this.timer_pause_button= $('#timer-pause');
     this.timer_start_button = $('#timer-start');
     this.total_seconds = 120;
@@ -12,6 +15,10 @@ function TidyUpAppTimer(){
 
 TidyUpAppTimer.prototype.decrement = function(){
     this.total_seconds--;
+};
+
+TidyUpAppTimer.prototype.items_increment = function(){
+    this.items_cleaned++;
 };
 
 TidyUpAppTimer.prototype.is_running = function(){
@@ -35,6 +42,7 @@ TidyUpAppTimer.prototype.refresh = function(){
         this.timer_pause_button.removeClass('disabled-btn');
         this.timer_start_button.addClass('disabled-btn');
     }
+    this.timer_items_added_el.html(this.items_cleaned);
 
     console.log(this);
 };
@@ -48,6 +56,13 @@ TidyUpAppTimer.prototype.register_handlers = function(){
     });
     this.timer_start_button.off('click').on('click', function(){
         this_ref.start();
+    });
+
+    this.timer_add_item_button.off('click').on('click', function(){
+        if (this_ref.is_running()){
+            this_ref.items_increment();
+            this_ref.refresh();
+        }
     });
 };
 

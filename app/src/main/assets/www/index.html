@@ -11,6 +11,8 @@
 <body>
     <div class="container-fluid">
         <h1 class="text-center color1" id="app-title">Tidy-Up Timer</h1>
+
+        <!-- main timer -->
         <div id="main" class="row hidden">
             <div class="col-xs-12">
                 <div class="row">
@@ -18,8 +20,8 @@
                         <i class="fa fa-bars pull-right" id="settings-btn"></i>
                         <ul class="hidden" id="main-menu">
                             <li><button class="btn btn-link" id="btn-new-timer">New Timer</button></li>
-                            <li><button class="btn btn-link" id="btn-high-scores">High Scores</button></li>
-                            <li><button class="btn btn-link" id="btn-about">About Tidy-Up Timer</button></li>
+                            <li><button class="btn btn-link" id="btn-high-scores" data-toggle="modal" data-target="#high-scores-app-modal">High Scores</button></li>
+                            <li><button class="btn btn-link" id="btn-about" data-toggle="modal" data-target="#about-app-modal">About Tidy-Up Timer</button></li>
                             <li><button class="btn btn-link" id="btn-close-menu">X Close</button></li>
                         </ul>
                     </div>
@@ -36,10 +38,11 @@
                     </div>
                 </div>
                 <div class="row" id="timer-wrapper">
+                    <div class="pull-right open-sans items-score-wrapper"><i class="fa fa-star color3"></i><span id="timer-items-added">0</span></div>
                     <div class="col-xs-12 text-center">
                         <span id="timer-minutes" class="kid-sans">02</span>:<span id="timer-seconds" class="kid-sans">00</span>
                     </div>
-                    <div class="col-xs-8 col-xs-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                         <div class="col-xs-6 text-center">
                             <span class="color3 timer-btn" id="timer-start">START</span>
                         </div>
@@ -47,13 +50,65 @@
                             <span class="timer-btn" id="timer-pause">PAUSE</span>
                         </div>
                     </div>
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+                        <button class="btn btn-primary btn-lg" id="timer-add-item">Add Item</button>
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- end main timer -->
+
     </div>
     <div class="text-center" id="fixed-footer">
         &copy;2018 Audrey Anderson. All rights reserved.
     </div>
+    <!--about box-->
+    <div class="modal fade open-sans" id="about-app-modal" tabindex="-1" role="dialog" aria-labelledby="about-app-modal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h2 class="modal-title" id="about-app-modal-label">About Tidy-Up Timer</h2>
+                </div>
+                <div class="modal-body">
+                    The Tidy-Up Timer was invented by Audrey A., a first grader at Riverton Elementary School, for her STEM fair. Her goal is to teach kids that doing work can be a fun challenge!
+                    <p class="text-center">V0.9 (Beta)</p>
+                    <p class="text-center">&copy; 2018 All rights reserved.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end about box-->
+
+    <!--high scores box-->
+    <div class="modal fade open-sans" id="high-scores-app-modal" tabindex="-1" role="dialog" aria-labelledby="high-scores-app-modal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h2 class="modal-title" id="high-scores-app-modal-label">High Scores</h2>
+                </div>
+                <div class="modal-body">
+                    <span id="loading-high-scores">
+                        <img src="images/comet-spinner.gif" alt="..." />
+                        Loading high scores...
+                    </span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end high scores box -->
+
     <div id="background-overlay" class="hidden"></div>
 
     <!--js scripts-->
