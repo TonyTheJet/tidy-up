@@ -17,6 +17,10 @@
             <div class="col-xs-12">
                 <div class="row">
                     <div class="col-xs-12">
+                        <div class="kid-sans items-score-wrapper pull-left">
+                            <img src="images/star.png" alt="(star" />
+                            <span id="timer-items-added">0</span>
+                        </div>
                         <i class="fa fa-bars pull-right" id="settings-btn"></i>
                         <ul class="hidden" id="main-menu">
                             <li><a class="btn btn-link" href="index.html">New Timer</a></li>
@@ -38,16 +42,17 @@
                     </div>
                 </div>
                 <div class="row" id="timer-wrapper">
-                    <div class="pull-right open-sans items-score-wrapper"><i class="fa fa-star color3"></i><span id="timer-items-added">0</span></div>
-                    <div class="col-xs-12 text-center">
-                        <span id="timer-minutes" class="kid-sans">02</span>:<span id="timer-seconds" class="kid-sans">00</span>
+                    <div id="timer-time-wrapper" class="row">
+                        <div class="col-xs-12 text-center">
+                            <span id="timer-minutes" class="kid-sans">02</span>:<span id="timer-seconds" class="kid-sans">00</span>
+                        </div>
                     </div>
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                         <div class="col-xs-6 text-center">
-                            <span class="color3 timer-btn" id="timer-start">START</span>
+                            <img src="images/play-btn.png" id="timer-start" alt="START" />
                         </div>
                         <div class="col-xs-6 text-center">
-                            <span class="timer-btn" id="timer-pause">PAUSE</span>
+                            <img src="images/pause-btn.png" id="timer-pause" alt="PAUSE" />
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
