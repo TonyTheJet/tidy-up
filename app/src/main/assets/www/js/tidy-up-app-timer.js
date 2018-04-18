@@ -3,8 +3,10 @@ function TidyUpAppTimer(){
     this.interval = null;
     this.items_cleaned = 0;
     this.minutes_el = $('#timer-minutes');
+    this.pause_sound = new Audio('audio/pause.ogg');
     this.seconds_el = $('#timer-seconds');
     this.timer_add_item_button = $('#timer-add-item');
+    this.timer_bell = new Audio('audio/finish-bell.mp3');
     this.timer_items_added_el = $('#timer-items-added');
     this.timer_pause_button= $('#timer-pause');
     this.timer_start_button = $('#timer-start');
@@ -52,15 +54,20 @@ TidyUpAppTimer.prototype.register_handlers = function(){
     var this_ref = this;
 
     this.timer_pause_button.off('click').on('click', function(){
-        window.navigator.vibrate(50);
-        this_ref.click_sound.play();
-        this_ref.pause();
+        if (this_ref.is_running()){
+            window.navigator.vibrate(50);
+            this_ref.pause_sound.play();
+            this_ref.pause();
+        }
+
 
     });
     this.timer_start_button.off('click').on('click', function(){
-        window.navigator.vibrate(100);
-        this_ref.click_sound.play();
-        this_ref.start();
+        if (!this_ref.is_running()){
+            window.navigator.vibrate(100);
+            this_ref.timer_bell.play();
+            this_ref.start();
+        }
     });
 
     this.timer_add_item_button.off('click').on('click', function(){
@@ -80,6 +87,7 @@ TidyUpAppTimer.prototype.start = function(){
         this.interval = setInterval(function(){
             if (this_ref.total_seconds <= 0){
                 this_ref.pause();
+                this_ref.timer_bell.play();
                 this_ref.refresh();
             } else {
                 this_ref.decrement();
