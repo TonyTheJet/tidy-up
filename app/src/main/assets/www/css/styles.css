@@ -159,10 +159,10 @@ h1 {
     display: block;
     height: 100%;
     left: 0;
-    padding-top: 40px;
+    padding-top: 64px;
     position: fixed;
     top: 0;
-    width: 100%;
+    width: calc(100% + 15px);
     z-index: 101;
 
 }
@@ -172,7 +172,14 @@ h1 {
 }
 
 #timer-selection-wrapper button {
-    font-size: 24px;
+    font-size: 48px;
+    padding-left: 64px;
+    padding-right: 64px;
+}
+
+#timer-selection-msg {
+    font-size: 48px;
+    margin-bottom: 48px;
 }
 
 #timer-pause {

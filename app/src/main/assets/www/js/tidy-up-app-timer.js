@@ -73,7 +73,7 @@ TidyUpAppTimer.prototype.register_handlers = function(){
 
     });
     this.timer_start_button.off('click').on('click', function(){
-        if (!this_ref.is_running()){
+        if (!this_ref.is_running() && this_ref.total_seconds > 0){
             window.navigator.vibrate(100);
             this_ref.timer_bell.play();
              this_ref.timer_music.play();
