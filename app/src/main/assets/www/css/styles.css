@@ -102,7 +102,7 @@ h1 {
     border-bottom: none;
 }
 
-#main-menu button.btn-link {
+#main-menu button.btn-link, #main-menu a.btn-link {
     color: #fff;
     cursor: pointer;
     display: block;
@@ -219,5 +219,9 @@ h1 {
 .btn-danger:focus {
     background-color: #a70000;
     border-color: #a70000;
+}
+
+.btn-link {
+    color: #fff;
 }
 /* end bootstrap overrides */
