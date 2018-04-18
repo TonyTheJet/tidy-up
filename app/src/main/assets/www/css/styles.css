@@ -149,12 +149,25 @@ h1 {
     opacity: .7;
 }
 
+#timer-add-item {
+    font-size: 72px;
+    margin-top: 16px;
+}
+
 #timer-selection-wrapper {
     padding-top: 80px;
 }
 
 #timer-selection-wrapper button {
     font-size: 24px;
+}
+
+#timer-pause {
+    cursor: pointer;
+}
+
+#timer-start {
+    cursor: pointer;
 }
 
 #timer-time-wrapper {
@@ -227,6 +240,20 @@ h1 {
 .btn-danger:focus {
     background-color: #a70000;
     border-color: #a70000;
+}
+
+.btn-secondary {
+    background-color: #7fbe00;
+    border-color: #7fbe00;
+    color: #fff;
+}
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:visited,
+.btn-secondary:focus {
+    background-color: #689c00;
+    border-color: #689c00;
+    color: #fff;
 }
 
 .btn-link {
