@@ -1,4 +1,5 @@
 function TidyUpAppTimer(){
+    this.click_sound = new Audio('audio/click.ogg');
     this.interval = null;
     this.items_cleaned = 0;
     this.minutes_el = $('#timer-minutes');
@@ -51,18 +52,21 @@ TidyUpAppTimer.prototype.register_handlers = function(){
     var this_ref = this;
 
     this.timer_pause_button.off('click').on('click', function(){
-        window.navigator.vibrate(100);
+        window.navigator.vibrate(50);
+        this_ref.click_sound.play();
         this_ref.pause();
 
     });
     this.timer_start_button.off('click').on('click', function(){
         window.navigator.vibrate(100);
+        this_ref.click_sound.play();
         this_ref.start();
     });
 
     this.timer_add_item_button.off('click').on('click', function(){
         if (this_ref.is_running()){
-            window.navigator.vibrate(100);
+            window.navigator.vibrate(30);
+            this_ref.click_sound.play();
             this_ref.items_increment();
             this_ref.refresh();
         }
