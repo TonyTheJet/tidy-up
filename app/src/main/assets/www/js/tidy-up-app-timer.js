@@ -9,6 +9,7 @@ function TidyUpAppTimer(){
     this.timer_bell = new Audio('audio/finish-bell.mp3');
     this.timer_items_added_el = $('#timer-items-added');
     this.timer_music = new Audio('audio/timer-music.mp3');
+    this.timer_music.loop = true;
     this.timer_pause_button= $('#timer-pause');
     this.timer_start_button = $('#timer-start');
     this.total_seconds = 120;
