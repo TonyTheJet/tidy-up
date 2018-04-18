@@ -9,6 +9,16 @@ function TidyUpAppMenu(){
      this.register_handlers();
 }
 
+TidyUpAppMenu.prototype.close = function(){
+    this.menu_wrapper_el.addClass('hidden');
+    this.menu_bg_overlay.addClass('hidden');
+};
+
+TidyUpAppMenu.prototype.open = function(){
+    this.menu_wrapper_el.addClass('hidden');
+    this.menu_bg_overlay.addClass('hidden');
+};
+
 TidyUpAppMenu.prototype.register_handlers = function(){
     this.register_close_menu();
     this.register_open_menu();
@@ -18,13 +28,11 @@ TidyUpAppMenu.prototype.register_handlers = function(){
 TidyUpAppMenu.prototype.register_close_menu = function(){
     var this_ref = this;
     this.menu_close_btn.on('click', function(e){
-        this_ref.menu_wrapper_el.addClass('hidden');
-        this_ref.menu_bg_overlay.addClass('hidden');
+        this_ref.close();
     });
 
     this.menu_bg_overlay.on('click', function(e){
-        this_ref.menu_wrapper_el.addClass('hidden');
-        this_ref.menu_bg_overlay.addClass('hidden');
+        this_ref.open();
     });
 };
 
