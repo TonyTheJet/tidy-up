@@ -8,6 +8,7 @@ function TidyUpAppTimer(){
     this.timer_add_item_button = $('#timer-add-item');
     this.timer_bell = new Audio('audio/finish-bell.mp3');
     this.timer_items_added_el = $('#timer-items-added');
+    this.timer_music = new Audio('audio/timer-music.mp3');
     this.timer_pause_button= $('#timer-pause');
     this.timer_start_button = $('#timer-start');
     this.total_seconds = 120;
@@ -29,7 +30,6 @@ TidyUpAppTimer.prototype.is_running = function(){
 };
 
 TidyUpAppTimer.prototype.pause = function(){
-    console.log('pausing');
     clearInterval(this.interval);
     this.interval = null;
 };
@@ -57,6 +57,7 @@ TidyUpAppTimer.prototype.register_handlers = function(){
         if (this_ref.is_running()){
             window.navigator.vibrate(50);
             this_ref.pause_sound.play();
+            this_ref.timer_music.pause();
             this_ref.pause();
         }
 
@@ -66,13 +67,14 @@ TidyUpAppTimer.prototype.register_handlers = function(){
         if (!this_ref.is_running()){
             window.navigator.vibrate(100);
             this_ref.timer_bell.play();
-            this_ref.start();
+             this_ref.timer_music.play();
+           this_ref.start();
         }
     });
 
     this.timer_add_item_button.off('click').on('click', function(){
         if (this_ref.is_running()){
-            window.navigator.vibrate(30);
+            window.navigator.vibrate(10);
             this_ref.click_sound.play();
             this_ref.items_increment();
             this_ref.refresh();
@@ -81,13 +83,13 @@ TidyUpAppTimer.prototype.register_handlers = function(){
 };
 
 TidyUpAppTimer.prototype.start = function(){
-    console.log('starting');
     if (!this.is_running()){
         var this_ref = this;
         this.interval = setInterval(function(){
             if (this_ref.total_seconds <= 0){
                 this_ref.pause();
                 this_ref.timer_bell.play();
+                this_ref.timer_music.stop();
                 this_ref.refresh();
             } else {
                 this_ref.decrement();
