@@ -145,8 +145,17 @@ h1 {
 .timer-btn {
     cursor: pointer;
 }
-.timer-btn:active, .timer-btn:hover, .timer-btn.disabled {
-    opacity: .7;
+.timer-btn:active, .timer-btn:hover {
+    opacity: .9;
+}
+.timer-btn.disabled-btn {
+    opacity: .5;
+}
+
+#timer-mute-music, #timer-mute-music:hover, #timer-mute-music:active {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
 }
 
 #timer-add-item {
@@ -165,6 +174,26 @@ h1 {
     width: calc(100% + 15px);
     z-index: 101;
 
+}
+
+#timer-selection-bg-lower {
+    background: url('../images/pick-a-time-bg-lower.png') no-repeat;
+    bottom: 0;
+    height: 143px;
+    left: 0;
+    position: absolute;
+    width: 179px;
+    z-index: 0;
+}
+
+#timer-selection-bg-upper {
+    background: url('../images/pick-a-time-bg-upper.png') no-repeat;
+    height: 191px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 141px;
+    z-index: 0;
 }
 
 #timer-selection-wrapper .timer-selection-btn-wrapper {

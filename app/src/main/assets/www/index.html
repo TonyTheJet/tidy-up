@@ -33,6 +33,8 @@
 
                 <!-- timer selection-->
                 <div class="row hidden" id="timer-selection-wrapper">
+                    <div id="timer-selection-bg-upper"></div>
+                    <div id="timer-selection-bg-lower"></div>
                     <div class="col-xs-12 text-center" id="timer-selection-msg">
                         Pick a tidy-up time:
                     </div>
@@ -64,14 +66,17 @@
                     </div>
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                         <div class="col-xs-6 text-center">
-                            <img src="images/play-btn.png" id="timer-start" alt="START" />
+                            <img class="timer-btn" src="images/play-btn.png" id="timer-start" alt="START" />
                         </div>
                         <div class="col-xs-6 text-center">
-                            <img src="images/pause-btn.png" id="timer-pause" alt="PAUSE" />
+                            <img class="timer-btn" src="images/pause-btn.png" id="timer-pause" alt="PAUSE" />
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
                         <button class="btn btn-secondary btn-lg" id="timer-add-item">Add Item</button>
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+                        <button class="btn btn-link" id="timer-mute-music">mute music</button>
                     </div>
                 </div>
             </div>

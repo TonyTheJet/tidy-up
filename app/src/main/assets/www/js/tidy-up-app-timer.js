@@ -3,6 +3,7 @@ function TidyUpAppTimer(){
     this.interval = null;
     this.items_cleaned = 0;
     this.minutes_el = $('#timer-minutes');
+    this.mute_button = $('#timer-mute-music');
     this.pause_sound = new Audio('audio/pause.ogg');
     this.seconds_el = $('#timer-seconds');
     this.started = false;
@@ -43,6 +44,7 @@ TidyUpAppTimer.prototype.is_running = function(){
 TidyUpAppTimer.prototype.pause = function(){
     clearInterval(this.interval);
     this.interval = null;
+    this.refresh();
 };
 
 TidyUpAppTimer.prototype.refresh = function(){
@@ -65,9 +67,9 @@ TidyUpAppTimer.prototype.register_handlers = function(){
     this.timer_pause_button.off('click').on('click', function(){
         if (this_ref.is_running()){
             window.navigator.vibrate(50);
+            this_ref.pause();
             this_ref.pause_sound.play();
             this_ref.timer_music.pause();
-            this_ref.pause();
         }
 
 
@@ -75,9 +77,9 @@ TidyUpAppTimer.prototype.register_handlers = function(){
     this.timer_start_button.off('click').on('click', function(){
         if (!this_ref.is_running() && this_ref.total_seconds > 0){
             window.navigator.vibrate(100);
+            this_ref.start();
             this_ref.timer_bell.play();
-             this_ref.timer_music.play();
-           this_ref.start();
+            this_ref.timer_music.play();
         }
     });
 
@@ -89,6 +91,18 @@ TidyUpAppTimer.prototype.register_handlers = function(){
             this_ref.refresh();
         }
     });
+
+    // mute music
+    this.mute_button.on('click', function(){
+        if (this_ref.timer_music.muted){
+            this_ref.timer_music.muted = false;
+            this_ref.mute_button.html('mute music');
+        }
+        else{
+            this_ref.timer_music.muted = true;
+            this_ref.mute_button.html('play music');
+        }
+    });
 };
 
 TidyUpAppTimer.prototype.start = function(){
@@ -98,14 +112,15 @@ TidyUpAppTimer.prototype.start = function(){
         this.interval = setInterval(function(){
             if (this_ref.total_seconds <= 0){
                 this_ref.pause();
+                this_ref.refresh();
                 this_ref.timer_bell.play();
                 this_ref.timer_music.pause();
-                this_ref.refresh();
             } else {
                 this_ref.decrement();
                 this_ref.refresh();
             }
         }, 1000);
+        this.refresh();
     }
 };
 
