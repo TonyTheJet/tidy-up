@@ -39,6 +39,6 @@ TidyUpAppMenu.prototype.register_open_menu = function(){
 
 TidyUpAppMenu.prototype.register_reload_app = function(){
     this.menu_new_timer_btn.on('click', function(){
-        location.reload();
+        navigator.app.loadUrl('file:///android_asset/www/index.html');
     });
 };
