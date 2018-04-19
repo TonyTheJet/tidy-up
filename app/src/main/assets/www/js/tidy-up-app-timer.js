@@ -45,13 +45,13 @@ TidyUpAppTimer.prototype.get_ready_countdown_increment = function(i, timeout){
                 this_ref.get_ready_countdown_number.html(i);
                 this_ref.countdown_beep.play();
             } else {
-                this_ref.get_ready_countdown_number.html('Go!!!');
                 this_ref.start();
                 this_ref.timer_bell.play();
-                this_ref.hide_get_ready_screen();
                 this_ref.timer_music.play();
+                this_ref.hide_get_ready_screen();
                 this_ref.get_ready_message.removeClass('hidden');
                 this_ref.get_ready_countdown_number.addClass('hidden');
+                this_ref.get_ready_countdown_number.html('3');
             }
         },
         timeout
