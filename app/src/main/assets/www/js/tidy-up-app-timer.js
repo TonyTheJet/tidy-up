@@ -1,5 +1,9 @@
 function TidyUpAppTimer(){
     this.click_sound = new Audio('audio/click.ogg');
+    this.countdown_beep = new Audio('audio/beep.mp3');
+    this.get_ready_countdown_number = $('#get-ready-countdown-number');
+    this.get_ready_message = $('#get-ready-message');
+    this.get_ready_screen = $('#get-ready-screen-wrapper');
     this.interval = null;
     this.items_cleaned = 0;
     this.minutes_el = $('#timer-minutes');
@@ -33,12 +37,49 @@ TidyUpAppTimer.prototype.destroy = function(){
     this.refresh();
 };
 
+TidyUpAppTimer.prototype.get_ready_countdown_increment = function(i, timeout){
+    var this_ref = this;
+    setTimeout(
+        function(){
+            if (i > 0){
+                this_ref.get_ready_countdown_number.html(i);
+                this_ref.countdown_beep.play();
+            } else {
+                this_ref.get_ready_countdown_number.html('Go!!!');
+                this_ref.start();
+                this_ref.timer_bell.play();
+                this_ref.hide_get_ready_screen();
+                this_ref.timer_music.play();
+                this_ref.get_ready_message.removeClass('hidden');
+                this_ref.get_ready_countdown_number.addClass('hidden');
+            }
+        },
+        timeout
+    );
+}
+
+TidyUpAppTimer.prototype.hide_get_ready_screen = function(){
+    this.get_ready_screen.addClass('hidden');
+};
+
 TidyUpAppTimer.prototype.items_increment = function(){
     this.items_cleaned++;
 };
 
 TidyUpAppTimer.prototype.is_running = function(){
     return (this.interval !== null);
+};
+
+TidyUpAppTimer.prototype.load_get_ready_screen = function(){
+    this.get_ready_screen.removeClass('hidden');
+    var this_ref = this;
+    setTimeout(function(){
+        this_ref.get_ready_message.addClass('hidden');
+        this_ref.get_ready_countdown_number.removeClass('hidden');
+    }, 4000);
+    for (var i = 3; i >= 0; i--){
+        this.get_ready_countdown_increment(i, 7000 - (i * 1000));
+    }
 };
 
 TidyUpAppTimer.prototype.pause = function(){
@@ -77,9 +118,15 @@ TidyUpAppTimer.prototype.register_handlers = function(){
     this.timer_start_button.off('click').on('click', function(){
         if (!this_ref.is_running() && this_ref.total_seconds > 0){
             window.navigator.vibrate(100);
-            this_ref.start();
-            this_ref.timer_bell.play();
-            this_ref.timer_music.play();
+            console.log(this_ref);
+            if (this_ref.total_seconds == this_ref.total_starting_seconds){
+                this_ref.click_sound.play();
+                this_ref.load_get_ready_screen();
+            } else {
+                this_ref.start();
+                this_ref.timer_bell.play();
+                this_ref.timer_music.play();
+            }
         }
     });
 

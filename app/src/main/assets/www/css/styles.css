@@ -248,6 +248,39 @@ h1 {
 }
 /* end timer */
 
+/* "get ready" screen */
+#get-ready-screen-wrapper {
+    background: #fff;
+    height: 100%;
+    left: 0;
+    padding: 36px;
+    position: fixed;
+    top: 0;
+    width: calc(100% + 15px);
+    z-index: 101;
+}
+
+#get-ready-screen-wrapper h2 {
+    font-size: 113px;
+    line-height: 90%;
+    margin: 0 0 16px;
+}
+
+#get-ready-message {
+    font-size: 36px;
+    line-height: 90%;
+}
+
+#get-ready-countdown-number {
+    font-size: 200px;
+    line-height: 90%;
+}
+
+#get-ready-audrey-img {
+    margin-top: 18px;
+}
+/* end "get ready" screen */
+
 /* footer */
 #fixed-footer {
     background-color: #202020;

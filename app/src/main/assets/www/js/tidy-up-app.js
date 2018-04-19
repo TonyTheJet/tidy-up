@@ -56,7 +56,7 @@ TidyUpApp.prototype.register_timer_selection_click = function(){
         }
         this_ref.main.timer = new TidyUpAppTimer();
         this_ref.main.timer.total_seconds = $(this).data('seconds');
-        this_ref.main.timer.total_starting_seconds = this_ref.total_seconds;
+        this_ref.main.timer.total_starting_seconds = this_ref.main.timer.total_seconds;
         this_ref.main.timer.refresh();
     });
 };
