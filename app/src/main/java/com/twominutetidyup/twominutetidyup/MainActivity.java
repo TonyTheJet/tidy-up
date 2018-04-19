@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         // Enable Javascript
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setMediaPlaybackRequiresUserGesture(false);
 
         mWebView.loadUrl("file:///android_asset/www/index.html");
     }
