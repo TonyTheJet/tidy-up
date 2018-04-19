@@ -21,14 +21,20 @@ function TidyUpAppIntro()
     // end constants
 
     // properties
+    this.app_title = $('#app-title');
     this.body_el = $('body');
     this.done = false;
+    this.queued_toy_drops = [];
     this.previous_toy_delay = 1000;
     this.toys = [];
     this.title_el = $('#app-title');
     this.window_height = $(window).height();
     this.window_width = $(window).width();
     // end properties
+
+    // event handlers
+    this.register_handlers();
+    // end event handlers
 };
 
 
@@ -78,17 +84,23 @@ TidyUpAppIntro.prototype.drop_toy = function(toy){
 TidyUpAppIntro.prototype.drop_toys = function(){
     var this_ref = this;
     for (var i = 0; i < this.toys.length; i++){
+
+        if (this.done)
+            break;
+
         this_ref.previous_toy_delay += parseInt(Math.floor(Math.random() * (this_ref.MAX_TOY_DELAY_MILLISECONDS - this_ref.MIN_TOY_DELAY_MILLISECONDS)) + this_ref.MIN_TOY_DELAY_MILLISECONDS);
 
         (
             function(toy){
-                setTimeout(
-                    function(){
-                        this_ref.drop_toy(toy)
-                    },
-                    this_ref.previous_toy_delay
-            );
-        }
+                this_ref.queued_toy_drops.push(
+                    setTimeout(
+                        function(){
+                            this_ref.drop_toy(toy)
+                        },
+                        this_ref.previous_toy_delay
+                    )
+                );
+            }
         )(this_ref.toys[i]);
     }
 };
@@ -108,12 +120,18 @@ TidyUpAppIntro.prototype.populate_toys = function(){
 };
 
 TidyUpAppIntro.prototype.random_toy_el = function(i){
-
-    //TODO: make this actually randomize the toys
     return $('<img/>', {
         alt: 'toy element',
         class: 'falling-toy',
         src: this.TOY_IMAGES[i % this.TOY_IMAGES.length]
+    });
+};
+
+TidyUpAppIntro.prototype.register_handlers = function(){
+    var this_ref = this;
+    this.app_title.on('click', function(){
+        this_ref.done = true;
+        this_ref.tidy_up();
     });
 };
 
@@ -135,4 +153,22 @@ TidyUpAppIntro.prototype.start = function(){
         this_ref.done = true;
     }, 8000);
 
+};
+
+/**
+    tidies up the loose elements for performance
+*/
+TidyUpAppIntro.prototype.tidy_up = function(){
+    for (var i = 0; i < this.queued_toy_drops.length; i++){
+        if (this.queued_toy_drops[i] != null){
+            clearTimeout(this.queued_toy_drops[i])
+        }
+    }
+    this.queued_toy_drops = [];
+
+    for (var i = 0; i < this.toys.length; i++){
+        this.toys[i].remove();
+    }
+    this.hide_intro_elements();
+    this.toys = [];
 };

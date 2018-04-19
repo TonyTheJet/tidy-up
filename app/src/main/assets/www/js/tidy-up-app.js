@@ -26,7 +26,7 @@ TidyUpApp.prototype.init = function()
             this_main.load();
             this_ref.show_selection_screen();
         }
-    }, 250);
+    }, 100);
 };
 
 TidyUpApp.prototype.register_handlers = function(){

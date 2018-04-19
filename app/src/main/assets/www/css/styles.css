@@ -33,8 +33,13 @@ body {
     font-size: 16px;
 }
 h1 {
+    color: #fff;
     font-family: 'Mister-Froggie-Regular', Arial, Helvetica, sans-serif;
     font-size: 80px;
+}
+
+#app-title {
+    cursor: pointer;
 }
 
 /* colors */
@@ -138,9 +143,22 @@ h1 {
 .items-score-wrapper {
     font-size: 36px;
     padding: 4px;
+    position: relative;
 }
+
+.items-score-wrapper img {
+    vertical-align: top;
+}
+
 #timer-items-added {
-    line-height: 120%;
+    display: block;
+    line-height: 100%;
+    margin: 0 0 6px;
+    position: absolute;
+    right: -184px;
+    text-align: left;
+    top: 8px;
+    width: 180px;
 }
 .timer-btn {
     cursor: pointer;
