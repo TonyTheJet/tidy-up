@@ -1,5 +1,6 @@
 function TidyUpApp()
 {
+    this.click_sound = new Audio('audio/click.ogg');
     this.intro = new TidyUpAppIntro();
     this.main = new TidyUpAppMain();
     this.menu = new TidyUpAppMenu();
@@ -50,6 +51,7 @@ TidyUpApp.prototype.register_timer_selection_click = function(){
     this.timer_selection_buttons.on('click', function(){
         this_ref.hide_selection_screen();
         this_ref.menu.close();
+        this_ref.click_sound.play();
 
         if (this_ref.main.timer && this_ref.main.timer.interval){
             this_ref.main.timer.destroy();
