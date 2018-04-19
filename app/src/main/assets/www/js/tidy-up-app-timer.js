@@ -118,7 +118,6 @@ TidyUpAppTimer.prototype.register_handlers = function(){
     this.timer_start_button.off('click').on('click', function(){
         if (!this_ref.is_running() && this_ref.total_seconds > 0){
             window.navigator.vibrate(100);
-            console.log(this_ref);
             if (this_ref.total_seconds == this_ref.total_starting_seconds){
                 this_ref.click_sound.play();
                 this_ref.load_get_ready_screen();
