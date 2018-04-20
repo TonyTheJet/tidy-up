@@ -119,6 +119,41 @@
     </div>
     <!--end about box-->
 
+    <!--score info box (after timer expires)-->
+    <div class="modal fade open-sans" id="score-info-modal" tabindex="-1" role="dialog" aria-labelledby="score-info-modal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h2 class="modal-title" id="score-info-modal-label">Time's Up!!!</h2>
+                </div>
+                <div class="modal-body" id="score-info-modal-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h3>
+                                Your score ranked number <span id="score-info-modal-rank">1</span> with <u><span id="score-info-modal-items-per-minute">0</span></u> items per minute!
+                            </h3>
+                            Enter your name and hit "save" below to add your results to the high scores list!
+                            <form id="score-form" class="form-horizontal">
+                                <div>
+                                    <label for="score-name">Name</label>
+                                    <input type="text" class="form-control" id="score-name" aria-describedby="score-name" placeholder="Enter your name" maxlength="12" required>
+                                </div>
+                                <button class="btn btn-secondary" data-dismiss="modal" id="save-score">Save Score</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end score info box-->
+
     <!--high scores box-->
     <div class="modal fade open-sans" id="high-scores-app-modal" tabindex="-1" role="dialog" aria-labelledby="high-scores-app-modal" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -127,9 +162,9 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h2 class="modal-title" id="high-scores-app-modal-label">High Scores</h2>
+                    <h2 class="modal-title" id="high-scores-app-modal-label">Top 20 High Scores</h2>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" id="high-scores-app-modal-body">
                     <span id="loading-high-scores">
                         <img src="images/comet-spinner.gif" alt="..." />
                         Loading high scores...
@@ -154,6 +189,8 @@
     <script type="text/javascript" src="js/tidy-up-app-intro.js"></script>
     <script type="text/javascript" src="js/tidy-up-app-main.js"></script>
     <script type="text/javascript" src="js/tidy-up-app-menu.js"></script>
+    <script type="text/javascript" src="js/tidy-up-app-high-score-list.js"></script>
+    <script type="text/javascript" src="js/tidy-up-app-score.js"></script>
     <script type="text/javascript" src="js/tidy-up-app-timer.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <!--end js scripts-->

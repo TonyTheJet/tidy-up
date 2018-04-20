@@ -281,6 +281,12 @@ h1 {
 }
 /* end "get ready" screen */
 
+/* score result modal */
+#score-name {
+    margin-bottom: 16px;
+}
+/* end score result modal */
+
 /* footer */
 #fixed-footer {
     background-color: #202020;

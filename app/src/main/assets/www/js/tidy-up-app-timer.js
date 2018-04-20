@@ -9,6 +9,9 @@ function TidyUpAppTimer(){
     this.minutes_el = $('#timer-minutes');
     this.mute_button = $('#timer-mute-music');
     this.pause_sound = new Audio('audio/pause.ogg');
+    this.score_modal = $('#score-info-modal');
+    this.score_modal_items_per_minute = $('#score-info-modal-items-per-minute');
+    this.score_modal_rank = $('#score-info-modal-rank');
     this.seconds_el = $('#timer-seconds');
     this.started = false;
     this.timer_add_item_button = $('#timer-add-item');
@@ -151,6 +154,16 @@ TidyUpAppTimer.prototype.register_handlers = function(){
     });
 };
 
+TidyUpAppTimer.prototype.show_score = function(){
+    var items_per_minute = parseFloat(this.items_cleaned / (this.total_starting_seconds / 60)).toFixed(2);
+    this.score_modal_items_per_minute.html(items_per_minute);
+    var high_scores_list = new TidyUpAppHighScoreList();
+    var score = new TidyUpAppScore('', items_per_minute);
+    var rank = high_scores_list.compare_score(score);
+    this.score_modal_rank.html(rank);
+    this.score_modal.modal('show');
+};
+
 TidyUpAppTimer.prototype.start = function(){
     this.started = true;
     if (!this.is_running()){
@@ -161,6 +174,7 @@ TidyUpAppTimer.prototype.start = function(){
                 this_ref.refresh();
                 this_ref.timer_bell.play();
                 this_ref.timer_music.pause();
+                this_ref.show_score();
             } else {
                 this_ref.decrement();
                 this_ref.refresh();
