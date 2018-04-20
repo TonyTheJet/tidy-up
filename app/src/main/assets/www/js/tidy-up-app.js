@@ -49,7 +49,6 @@ TidyUpApp.prototype.load_high_scores_table = function(){
 
     // build the string out
     var table = '<table class="table table-bordered table-responsive table-striped"><thead><tr><th class="text-center">Name</th><th class="text-center">Items Per Minute</th></tr></thead><tbody>';
-    console.log(this.high_scores_list.scores);
     for (var i = 0; i < this.high_scores_list.scores.length; i++){
         if (i < this.NUM_HIGH_SCORES_TO_DISPLAY){
             table += '<tr><td>' + this.high_scores_list.scores[i].name + '</td><td class="text-right">' + this.high_scores_list.scores[i].items_per_minute.toFixed(2) + '</td>';
