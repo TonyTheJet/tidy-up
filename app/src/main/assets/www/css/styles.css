@@ -243,6 +243,15 @@ h1 {
     margin-right: -23px;
 }
 
+#timer-mute-music-wrapper {
+    font-size: 18px;
+}
+
+#bucket-wrapper {
+    margin-bottom: 40px;
+    margin-top: 80px;
+}
+
 #timer-wrapper {
     font-size: 48px;
 }
