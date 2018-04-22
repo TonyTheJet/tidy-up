@@ -115,6 +115,7 @@ TidyUpAppTimer.prototype.register_handlers = function(){
     this.timer_pause_button.off('click').on('click', function(){
         if (this_ref.is_running()){
             window.navigator.vibrate(50);
+            this_ref.timer_add_item_button.addClass('disabled');
             this_ref.pause();
             this_ref.pause_sound.play();
             this_ref.timer_music.pause();
@@ -125,6 +126,7 @@ TidyUpAppTimer.prototype.register_handlers = function(){
     this.timer_start_button.off('click').on('click', function(){
         if (!this_ref.is_running() && this_ref.total_seconds > 0){
             window.navigator.vibrate(100);
+            this_ref.timer_add_item_button.removeClass('disabled');
             if (this_ref.total_seconds == this_ref.total_starting_seconds){
                 this_ref.click_sound.play();
                 this_ref.load_get_ready_screen();

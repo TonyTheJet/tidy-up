@@ -231,10 +231,14 @@ h1 {
 
 #timer-pause {
     cursor: pointer;
+    position: relative;
+    z-index: 99;
 }
 
 #timer-start {
     cursor: pointer;
+    position: relative;
+    z-index:99;
 }
 
 #timer-time-wrapper {
