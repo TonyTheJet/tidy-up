@@ -28,7 +28,13 @@ TidyUpAppMenu.prototype.register_handlers = function(){
 TidyUpAppMenu.prototype.register_close_menu = function(){
     var this_ref = this;
     this.menu_close_btn.on('click', function(e){
-        window.close();
+        if (navigator.app) {
+            navigator.app.exitApp();
+        } else if (navigator.device) {
+            navigator.device.exitApp();
+        } else {
+            window.close();
+        }
     });
 
     this.menu_bg_overlay.on('click', function(e){
