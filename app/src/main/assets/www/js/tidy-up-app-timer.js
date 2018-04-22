@@ -159,6 +159,17 @@ TidyUpAppTimer.prototype.register_handlers = function(){
             this_ref.mute_button.html('play music');
         }
     });
+
+    // pause it when the webView loses focus
+    $(window).blur(function(){
+        if (this_ref.is_running()){
+            window.navigator.vibrate(50);
+            this_ref.timer_add_item_button.addClass('disabled');
+            this_ref.pause();
+            this_ref.pause_sound.play();
+            this_ref.timer_music.pause();
+        }
+    });
 };
 
 TidyUpAppTimer.prototype.show_score = function(){
