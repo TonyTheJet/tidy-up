@@ -247,9 +247,30 @@ h1 {
     font-size: 18px;
 }
 
-#bucket-wrapper {
+#toy-basket-wrapper {
     margin-bottom: 32px;
     margin-top: 64px;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+}
+
+#toy-basket-wrapper .basket-item {
+    position: absolute;
+    z-index: 100;
+}
+
+#toy-basket-wrapper .basket-item.angle-left {
+    transform: rotate(-19deg);
+}
+
+#toy-basket-wrapper .basket-item.angle-right {
+    transform: rotate(19deg);
+}
+
+#toy-basket {
+    position: relative;
+    z-index: 90;
 }
 
 #timer-wrapper {

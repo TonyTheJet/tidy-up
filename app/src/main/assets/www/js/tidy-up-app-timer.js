@@ -23,6 +23,10 @@ function TidyUpAppTimer(){
     this.timer_start_button = $('#timer-start');
     this.total_seconds = 120;
     this.total_starting_seconds = 120;
+    this.toy_basket = new TidyUpAppTimerToyBasket();
+
+    // make sure to empty the toy basket each time this object is created
+    this.toy_basket.empty();
 
     this.register_handlers();
 }
@@ -137,6 +141,7 @@ TidyUpAppTimer.prototype.register_handlers = function(){
             window.navigator.vibrate(10);
             this_ref.click_sound.play();
             this_ref.items_increment();
+            this_ref.toy_basket.add_item();
             this_ref.refresh();
         }
     });
