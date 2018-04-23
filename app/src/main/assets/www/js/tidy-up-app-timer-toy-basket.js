@@ -85,7 +85,6 @@ TidyUpAppTimerToyBasket.prototype.calculate_min_top_value_for_image = function(i
 };
 
 TidyUpAppTimerToyBasket.prototype.empty = function(){
-    for (var i = 0; i < this.basket_images.length; i++){
-        this.basket_images[i].remove();
-    }
+    this.basket_wrapper_el.find('.' + this.BASKET_ITEM_CLASS).remove();
+    this.basket_images = [];
 };
