@@ -162,13 +162,15 @@ TidyUpAppTimer.prototype.register_handlers = function(){
 
     // pause it when the webView loses focus
     $(window).blur(function(){
-        if (this_ref.is_running()){
-            window.navigator.vibrate(50);
-            this_ref.timer_add_item_button.addClass('disabled');
-            this_ref.pause();
-            this_ref.pause_sound.play();
-            this_ref.timer_music.pause();
-        }
+        document.addEventListener("visibilitychange", function(){
+            if (document.hidden && this_ref.is_running()){
+                window.navigator.vibrate(50);
+                this_ref.timer_add_item_button.addClass('disabled');
+                this_ref.pause();
+                this_ref.pause_sound.play();
+                this_ref.timer_music.pause();
+            }
+        }, false);
     });
 };
 
